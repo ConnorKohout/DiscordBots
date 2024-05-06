@@ -23,7 +23,10 @@ def clean_text(text):
 class MyDiscordBot(discord.Client):
     async def on_ready(self):
         print(f'Logged in as {self.user}')
-        channel = self.get_channel(1174800124745105438)  # Replace with the actual channel ID
+        with open("jertoken.txt", "r") as file:
+            channelID = file.read().strip()
+
+        channel = self.get_channel(channelID)  # Replace with the actual channel ID
         if channel:
             async for message in channel.history(limit=100000):  # Fetch all messages
                 if message.author.id == TARGET_USER_ID and not message.author.bot:
