@@ -10,7 +10,7 @@ intents.messages = True  # Enable message intents
 intents.message_content = True  # Enable message content intent for handling messages
 
 TARGET_USER_ID = 570788093527851008  # Replace with the actual user ID
-FILE_PATH = 'C:/Users/Conno/projects/khu0ng/qdata.txt'  # Path where you want to save the file
+FILE_PATH = 'C:/Users/Conno/projects/bots/DiscordBots/quackdata.txt'  # Path where you want to save the file
 FILE_PATH2 ='C:/Users/Conno/projects/khu0ng/jdata.txt'
 def clean_text(text):
     """Basic text cleaning and normalization"""
@@ -23,21 +23,22 @@ def clean_text(text):
 class MyDiscordBot(discord.Client):
     async def on_ready(self):
         print(f'Logged in as {self.user}')
-        with open("jertoken.txt", "r") as file:
-            channelID = file.read().strip()
+        try:
+            with open("channel_ID.txt", "r") as file:
+                channelIDs = file.readlines()
+            for channelID in channelIDs:
+                channel = self.get_channel(int(channelID.strip()))
+                if channel:
+                    async for message in channel.history(limit=100000):  # Adjust limit as needed
+                        if message.author.id == TARGET_USER_ID and not message.author.bot:
+                            if message.content and not message.content.startswith(('!', '/', '.')):
+                                cleaned_message = clean_text(message.content)
+                                if len(cleaned_message) > 1:
+                                    with open(FILE_PATH, 'a', encoding='utf-8') as f:
+                                        f.write(f"{cleaned_message}\n")
+        except Exception as e:
+            print(f"Error during setup: {e}")
 
-        channel = self.get_channel(channelID)  # Replace with the actual channel ID
-        if channel:
-            async for message in channel.history(limit=100000):  # Fetch all messages
-                if message.author.id == TARGET_USER_ID and not message.author.bot:
-                    if message.content and not message.content.startswith(('!', '/', '.')):
-                        cleaned_message = clean_text(message.content)
-                        if len(cleaned_message) > 1:  # Only save messages longer than 1 characters
-                            try:
-                                with open(FILE_PATH, 'a', encoding='utf-8') as file:
-                                    file.write(f"{cleaned_message}\n")
-                            except Exception as e:
-                                print(f"Error writing message to file: {e}")
 
     async def on_message(self, message):
         # Prevent the bot from replying to itself
