@@ -1,6 +1,9 @@
 import discord
 import asyncio
 import re
+import random
+
+quotes=["starts off with being tipsy on the job then boom your in mexico with three baby mama","where is my ramona flowers","o block has an aura that i can feel from my hotel"]
 
 intents = discord.Intents.default()
 intents.messages = True  # Enable message intents
@@ -38,21 +41,31 @@ class MyDiscordBot(discord.Client):
         if message.author == self.user:
             return
         
+        if message.content.startswith('$quote'):
+            quote = random.choice(quotes)
+            await message.channel.send(quote)
+            await message.delete()
+        
+        if message.content.startswith('$help'):
+            await message.channel.send('Hello! I am Jermane bot. Here is a list of known commands: $hello, $ice, $floor, $apu, $fein, $quote')
+
         if message.content.startswith('$hello'):
             await message.channel.send('Hello! I am Jermane bot here to assist you with any coding assignment you are currently failing.')
 
         if message.content.startswith('$floor'):
             await message.channel.send('I am on the floor.')
+            
         if message.content.startswith('$ice'):
             await message.channel.send("Ice Spice's a MUNCH!")
 
-        if message.content.startswith('$ethan'):
-            await message.channel.send('Ethan a hoe assss hoe')
-
-        if message.content.startswith('$damian'):
-            await message.channel.send("If Damian's not at the lib, he's not locked.")      
-            await message.delete()
+        if message.content.startswith('$fein'):
+            await message.channel.send("https://www.youtube.com/watch?v=B9synWjqBn8")
             
+        if message.content.startswith('$apu'):
+            await message.channel.send("Apu is apuing")
+
+        if message.content.startswith('$khuong'):
+            await message.channel.send("!quote")
                   
 # Replace 'mytokenishere' with your actual Discord bot token
 client = MyDiscordBot(intents=intents)

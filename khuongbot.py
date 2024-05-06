@@ -39,6 +39,10 @@ class SimpleBot(discord.Client):
             await message.channel.send("xiu lau quay nan chi phai fuck you")
             await message.delete()
 
+        if message.content.startswith('!jmane'):
+            await message.channel.send("$quote")
+            await message.delete()
+
         if message.content.startswith('!quote'):
             quote = random.choice(quotes)
             await message.channel.send(quote)
