@@ -9,8 +9,8 @@ intents = discord.Intents.default()
 intents.messages = True  # Enable message intents
 intents.message_content = True  # Enable message content intent for handling messages
 
-TARGET_USER_ID = 452873873428316160  # Replace with the actual user ID
-FILE_PATH = 'C:/Users/Conno/projects/khu0ng/khdata.txt'  # Path where you want to save the file
+TARGET_USER_ID = 570788093527851008  # Replace with the actual user ID
+FILE_PATH = 'C:/Users/Conno/projects/khu0ng/qdata.txt'  # Path where you want to save the file
 FILE_PATH2 ='C:/Users/Conno/projects/khu0ng/jdata.txt'
 def clean_text(text):
     """Basic text cleaning and normalization"""
@@ -23,7 +23,7 @@ def clean_text(text):
 class MyDiscordBot(discord.Client):
     async def on_ready(self):
         print(f'Logged in as {self.user}')
-        channel = self.get_channel(1028516903603421264)  # Replace with the actual channel ID
+        channel = self.get_channel(1174800124745105438)  # Replace with the actual channel ID
         if channel:
             async for message in channel.history(limit=100000):  # Fetch all messages
                 if message.author.id == TARGET_USER_ID and not message.author.bot:
