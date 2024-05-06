@@ -66,7 +66,10 @@ class MyDiscordBot(discord.Client):
 
         if message.content.startswith('$khuong'):
             await message.channel.send("!quote")
-                  
+
+        if message.content.startswith('$cancer'):
+            await message.channel.send('shawty you got to be cancer cause you make me feel some type of way and no i cannot be canceled cause you feel some type of way')
+            
 # Replace 'mytokenishere' with your actual Discord bot token
 client = MyDiscordBot(intents=intents)
 with open("jertoken.txt", "r") as file:
