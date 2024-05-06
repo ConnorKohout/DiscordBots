@@ -37,7 +37,7 @@ class SimpleBot(discord.Client):
             
 
         if message.content.startswith('!ethan'):
-            await message.channel.send("https://www.youtube.com/watch?v=vZAgr33aBIg")
+            await message.channel.send("im tryna kiss ethan with my knee\n https://www.youtube.com/watch?v=vZAgr33aBIg")
             await message.delete()
 
         if message.content.startswith('!xiu'):
@@ -46,14 +46,17 @@ class SimpleBot(discord.Client):
 
         if message.content.startswith('!help'):
             await message.channel.send("xiu lau quay nan chi phai fuck you")
-            await message.delete()
+
 
         if message.content.startswith('!jmane'):
             await message.channel.send("$quote")
             await message.delete()
 
         if message.content.startswith('!og'):
+            await message.delete()
             await message.channel.send('aryan ima just ignore you from now unless we talking about school cuz on god i will rip you to fucking pieces')
+            
+
         if message.content.startswith('!quote'):
             quote = random.choice(quotes)
             await message.channel.send(quote)

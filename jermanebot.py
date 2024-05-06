@@ -54,22 +54,27 @@ class MyDiscordBot(discord.Client):
 
         if message.content.startswith('$floor'):
             await message.channel.send('I am on the floor.')
-            
+            await message.delete()
         if message.content.startswith('$ice'):
             await message.channel.send("Ice Spice's a MUNCH!")
+            await message.delete()
+        if message.content.startswith('$ramona'):
+            await message.channel.send("where is my ramona flowers")
+            await message.delete()
 
         if message.content.startswith('$fein'):
             await message.channel.send("https://www.youtube.com/watch?v=B9synWjqBn8")
-            
+            await message.delete()
         if message.content.startswith('$apu'):
             await message.channel.send("Apu is apuing")
+            await message.delete()
 
         if message.content.startswith('$khuong'):
             await message.channel.send("!quote")
-
+            
         if message.content.startswith('$cancer'):
             await message.channel.send('shawty you got to be cancer cause you make me feel some type of way and no i cannot be canceled cause you feel some type of way')
-            
+            await message.delete()
 # Replace 'mytokenishere' with your actual Discord bot token
 client = MyDiscordBot(intents=intents)
 with open("jertoken.txt", "r") as file:
