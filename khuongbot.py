@@ -2,18 +2,24 @@ import discord
 import random
 
 quotes = ["you busting no nuts lil bro. ur testosterone levels are dangerous low according to your doctor.", "we need to get quinton some honeys",
-          "and his name is fucjing jermaine jackson","ethan tryna get good brain","drunk and high two spectrums","i need to grt higher","ur testosterone levels are dangerous low according to your doctor",
-          "faaaccttts","im thick like a chopstick","iowa smoking good weed","im here at the library with my other dogs","i need drugs","ridin around in the lobby i know that they tie of me having like ten hoes",
+          "and his name is fucjing jermaine jackson","ethan tryna get good brain","drunk and high two spectrums","i need to grt higher",
+          "ur testosterone levels are dangerous low according to your doctor",
+          "faaaccttts","im thick like a chopstick","iowa smoking good weed","im here at the library with my other dogs","i need drugs",
+          "ridin around in the lobby i know that they tie of me having like ten hoes",
           "playing both sides with ethans mom","he was like u smoking dick tryna trip like fen video","jermane said he a no show",
           "i mix all problems with prometh until i roll in my death bed","i rescind my previous comment","we not with that gay shit here","cant trust no bitch",
           "but im sippen that kombucha either pink or brown","i know that they tired of me havin like ten hoes","im dead sears","me and jmane committed murder on the low",
-          "don had a creampie","he was receiving a creampie","kill yourself","yall aint sensed my energy fake af","so is dame fucking or whats up","ima lock you up cuz your mentally deteriorating","for waifu yes she gotta have good brain",
-          "cannabism","he def hoeing","gay as fuck","fuck them mexicans","jk love then mexicans","if i ever put the gang on id be the most legendary member","traveling the world like the pope","guys guys im having a baby","why the fuck these 7777777 acting like they know us"
-          ,"like interdimensional travel type fried not blackout type","have u started on that 440 prog assignment","i dont got a mom so fuck you pussy","on a scale of 1-sydney sweeney i give it a sydney sweeney","if you know what i know hide your hoe","can i fuck hoes at your crib",
-          "i need to curate ethans tinder","you come with me ill give you riches","no fucking doubt i would abuse my power","im like kanye","cranston brain would blow up from the filth that he witnesses",
-          "yall know damn well im the catalyst","don the original finesse god","don is my antithesis","im banishing you to the shadow realm where you belong","i said i missed you and you come back with this outrageous bussy shit"
-          ,"i would blow but im not gonna","so i ended up monetizing ethans mom by recording us committing adultery and selling the tapes at a high price online","always take pussy with consent tho we dont steal pussy"
-          ,"go to the fucking gym","me and jermane finna pull up stomp somebody","bitch bitch bitch",""]
+          "don had a creampie","he was receiving a creampie","kill yourself","yall aint sensed my energy fake af","so is dame fucking or whats up",
+          "ima lock you up cuz your mentally deteriorating","for waifu yes she gotta have good brain",
+          "cannabism","he def hoeing","gay as fuck","fuck them mexicans","jk love then mexicans","if i ever put the gang on id be the most legendary member",
+          "traveling the world like the pope","guys guys im having a baby","why the fuck these 7777777 acting like they know us"
+          ,"like interdimensional travel type fried not blackout type","have u started on that 440 prog assignment","i dont got a mom so fuck you pussy",
+          "on a scale of 1-sydney sweeney i give it a sydney sweeney","if you know what i know hide your hoe","can i fuck hoes at your crib",
+          "i need to curate ethans tinder","you come with me ill give you riches","no fucking doubt i would abuse my power","im like kanye",
+          "cranston brain would blow up from the filth that he witnesses","yall know damn well im the catalyst","don the original finesse god","don is my antithesis",
+          "im banishing you to the shadow realm where you belong","i said i missed you and you come back with this outrageous bussy shit"
+          ,"i would blow but im not gonna","so i ended up monetizing ethans mom by recording us committing adultery and selling the tapes at a high price online",
+          "always take pussy with consent tho we dont steal pussy","go to the fucking gym","me and jermane finna pull up stomp somebody","bitch bitch bitch"]
 # Define the bot class inheriting from discord.Client
 class SimpleBot(discord.Client):
     async def on_ready(self):
