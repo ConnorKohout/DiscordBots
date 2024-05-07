@@ -47,6 +47,9 @@ class SimpleBot(discord.Client):
         if message.content.startswith('!help'):
             await message.channel.send("xiu lau quay nan chi phai fuck you")
 
+        if message.content.startswith('!laos'):
+            await message.channel.send("i want to commit a couple of laus")
+
 
         if message.content.startswith('!jmane'):
             await message.channel.send("$quote")

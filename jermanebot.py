@@ -3,7 +3,7 @@ import asyncio
 import re
 import random
 
-quotes=["starts off with being tipsy on the job then boom your in mexico with three baby mama","where is my ramona flowers","o block has an aura that i can feel from my hotel"]
+quotes=["starts off with being tipsy on the job then boom your in mexico with three baby mama","where is my ramona flowers","o block has an aura that i can feel from my hotel","getting up is for the strong i am currently weak"]
 
 intents = discord.Intents.default()
 intents.messages = True  # Enable message intents
