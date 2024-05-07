@@ -40,9 +40,8 @@ class Eliza:
         self.categories = [
             ResponseCategory(r"I need (.*)", ["Need {0}, huh?'?", "{0}? I got you with that quack phai.", "You think needing {0} makes you a big man? Ta-ta there, retard."]),
             ResponseCategory(r"I am (.*)", ["You are {0}? Keep yappin', I've dealt with bigger fishes than you.", "{0}? That's right, run along now, sheep.", "Oh, you’re {0}? Watch your tone, chomo."]),
-            ResponseCategory(r"police|cops", ["Cops? Those baby rapers are all on the featherin' list!", "Don't trust those costume wearers, always sniffin' around.", "Ha! Those gang stalkers? I've got my eye on them."]),
             ResponseCategory(r"(.*)(car|vehicle|van)(.*)", ["What’s with your {1}? You live in that thing or somethin'?", "Your {1}, huh? Does it run faster than the law?", "A {1}, eh? Bet it doesn’t have half the miles mine does."]),
-            ResponseCategory(r"(.*)", ["What's that supposed to mean, huh?", "Keep talking, I’m just heating up my branding iron.", "Is that right? Well, ta-ta there, baby raper."])
+            ResponseCategory(r"(.*)", ["What's that supposed to mean, huh?", "Keep talking, I’m just heating up my branding iron."])
         ]
 
     def reflect(self, phrase):

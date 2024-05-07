@@ -3,8 +3,13 @@ import asyncio
 import re
 import random
 
-quotes=["starts off with being tipsy on the job then boom your in mexico with three baby mama","where is my ramona flowers","o block has an aura that i can feel from my hotel","getting up is for the strong i am currently weak"]
-
+quotes=["starts off with being tipsy on the job then boom your in mexico with three baby mama","where is my ramona flowers",
+        "o block has an aura that i can feel from my hotel","getting up is for the strong i am currently weak","i was playing the game until like 5 last night","hater alert hater alert",
+        "well the bigger question is can we prove something is recognizable by failing mapping reduction with nhalt being the problem we reduce",
+        "im about to leave the lib if cranston does not answer by the time i get home houston we have a problem","thats exactly what i am saying since we are talking in generality the property state that  if given an a description of a machine l1 accepts a machine encoding that accepts its forward or its backwards, we dont need to know the encoding as long as it accepts forward and backwards then it will be in l1 see how it says there is at least one machine m with m in l1 if we say that the machine m is the machine with the encoding that accepts palindromes and the reverse that m is a member of l1",
+"intellectual humanoids like cranston and myself just vibrate diff","jermane turing","knowledge is power but power is not knowledge","cause xiu lau quack liu is a vibe",
+"u not khoung chomsky","nastyyy","aye that virginia one hit though","maybe his cranston smarts can rub off on me"
+,"hey girl are you into pda because ive constructed a pushdown automata that can generate binary palindromes",""]
 intents = discord.Intents.default()
 intents.messages = True  # Enable message intents
 intents.message_content = True  # Enable message content intent for handling messages
