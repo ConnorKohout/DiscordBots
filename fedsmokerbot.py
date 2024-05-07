@@ -18,6 +18,29 @@ quotes = ["That's what that tweak does to ya kid.","When you're around tweakers 
           "Imma fuck em up with my wires.... and twist their fuckin souls....","Even this baby will wear a baby raper stamp on the forehead right there","Long story short my mom talked me out of not blowing his fuckin head off","ta-ta there, retard","Keep them baby-rapers on their toes, never let the featherin' stop.",
           "You can't corral the wild, and you sure can't cage this storm."]
 
+import torch
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
+
+class ChatModel:
+    def __init__(self):
+        self.tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+        self.model = GPT2LMHeadModel.from_pretrained('gpt2')
+        self.model.eval()  # Set the model to evaluation mode
+
+    def generate_response(self, input_text):
+        # Encode the input text
+        input_ids = self.tokenizer.encode(input_text, return_tensors='pt')
+        # Generate a response using the model
+        with torch.no_grad():
+            output_ids = self.model.generate(input_ids, max_length=50, num_return_sequences=1)
+        # Decode the response
+        response = self.tokenizer.decode(output_ids[0], skip_special_tokens=True)
+        return response
+
+# Example usage
+
+
+
 class ResponseCategory:
     def __init__(self, pattern, responses):
         self.pattern = re.compile(pattern, re.IGNORECASE)
@@ -108,12 +131,21 @@ class SimpleBot(discord.Client):
             response = self.eliza.analyze(message.content)
             await message.channel.send(response)
             return            
-        # Start session with !talk
         if message.content.startswith('!talk'):
             self.active_sessions.add(message.author.id)
             await message.channel.send("Hello! I'm here to chat. Type `!stop` to end our conversation.")
             return
 
+        if message.author.id in self.active_sessions:
+            if message.content.lower() == '!stop':
+                self.active_sessions.remove(message.author.id)
+                await message.channel.send("Goodbye! If you want to talk again, just say `!talk`.")
+                return
+            
+            # Use the chat model to generate a response
+            response = self.chat_model.generate_response(message.content)
+            await message.channel.send(response)
+            return
 
 # Define intents for the bot
 intents = discord.Intents.default()
